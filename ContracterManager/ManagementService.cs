@@ -17,9 +17,17 @@ namespace ContracterManager
         {
             Contractors.Add(new Contractor( ID, firstName, lastName, rate, date));
         }
-        public void RemoveContractor()
+        public bool RemoveContractor(Contractor contractor, List<Contractor> contractors)
         {
-
+            foreach (Contractor item in contractors)
+            {
+                if (item.ContractorID == contractor.ContractorID)
+                {
+                    contractors.Remove(item);
+                }
+                return true;
+            }
+            return false;
         }
         public void AddJob()
         {
