@@ -13,9 +13,9 @@ namespace ContracterManager
         List<Job> Jobs = new List<Job>();
         
  
-        public void AddContractor()
+        public void AddContractor(int ID, string firstName, string lastName, int rate, DateOnly date)
         {
-
+            Contractors.Add(new Contractor( ID, firstName, lastName, rate, date));
         }
         public void RemoveContractor()
         {

@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "ManagementService.cs",
               "ToolTip": "C:\\Users\\20122886\\source\\repos\\assess2-contractor-manager\\ContracterManager\\ManagementService.cs",
               "RelativeToolTip": "ManagementService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAiAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-30T04:16:38.492Z",
               "EditorCaption": ""
@@ -53,7 +53,7 @@
               "RelativeDocumentMoniker": "Contractor.cs",
               "ToolTip": "C:\\Users\\20122886\\source\\repos\\assess2-contractor-manager\\ContracterManager\\Contractor.cs",
               "RelativeToolTip": "Contractor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAvAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-30T04:16:07.201Z",
               "EditorCaption": ""
@@ -80,8 +80,7 @@
               "ToolTip": "C:\\Users\\20122886\\source\\repos\\assess2-contractor-manager\\ContracterManager\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-30T04:13:02.913Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-30T04:13:02.913Z"
             },
             {
               "$type": "Document",
