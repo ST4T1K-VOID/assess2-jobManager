@@ -12,6 +12,7 @@ namespace ContracterManager
 
         List<Job> Jobs = new List<Job>();
         
+        Job job = new jobb
  
         public void AddContractor(int ID, string firstName, string lastName, int rate, DateOnly date)
         {
