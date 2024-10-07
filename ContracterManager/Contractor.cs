@@ -11,16 +11,26 @@ namespace ContracterManager
         public int ContractorID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int Rate { get; set; }
-        public DateOnly StartDate { get; set; }
+        public decimal Rate { get; set; }
+        //public DateOnly StartDate { get; set; }
 
-        public Contractor(int contractorID, string firstName, string lastName, int rate, DateOnly startDate)
+        public Contractor(int contractorID, string firstName, string lastName, decimal rate) //Add date back
         {
             ContractorID = contractorID;
             FirstName = firstName;
             LastName = lastName;
             Rate = rate;
-            StartDate = startDate;
+            //StartDate = startDate;
+        }
+
+        public override string ToString()
+        {
+            string iDString = ContractorID.ToString();
+            string fNameString = FirstName;
+            string lNameString = LastName;
+            string rateString = Rate.ToString();
+
+            return $"{iDString} || {fNameString} {lNameString} || ${rateString}";
         }
     }
 }

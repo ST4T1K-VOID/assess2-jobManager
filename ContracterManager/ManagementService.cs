@@ -8,21 +8,35 @@ namespace ContracterManager
 {
     class ManagementService
     {
-        List<Contractor> Contractors = new List<Contractor>();
+        private List<Contractor> Contractors = new List<Contractor>();
 
-        List<Job> Jobs = new List<Job>();
-        
-        Job job = new jobb
+        private List<Job> Jobs = new List<Job>();
  
-        public void AddContractor(int ID, string firstName, string lastName, int rate, DateOnly date)
+        public ManagementService()
         {
-            Contractors.Add(new Contractor( ID, firstName, lastName, rate, date));
+            AddContractor(101, "Bob", "Smith", Convert.ToDecimal(24.30));
+            AddContractor(102, "Jane", "Smith", Convert.ToDecimal(24.00));
+            AddContractor(103, "Smelly", "JR", Convert.ToDecimal(100.05));
+            AddContractor(104, "Peter", "Pater", Convert.ToDecimal(24.10));
+            AddContractor(105, "Potatoe", "Joe", Convert.ToDecimal(0.20));
+            AddContractor(106, "Billy", "Bob", Convert.ToDecimal(50.00));
+
+            AddJob("Lay bricks", Convert.ToDecimal(300.99));
+            AddJob("lay roof tiles", Convert.ToDecimal(320.50));
+            AddJob("install light fixtures", Convert.ToDecimal(199.99));
+
+
         }
-        public bool RemoveContractor(Contractor contractor, List<Contractor> contractors)
+        //TODO add date
+        public void AddContractor(int contractorID, string firstName, string lastName, decimal rate)
+        {
+            Contractors.Add(new Contractor( contractorID, firstName, lastName, rate));
+        }
+        public bool RemoveContractor(Contractor targetContractor, List<Contractor> contractors)
         {
             foreach (Contractor item in contractors)
             {
-                if (item.ContractorID == contractor.ContractorID)
+                if (item.ContractorID == targetContractor.ContractorID)
                 {
                     contractors.Remove(item);
                 }
@@ -30,9 +44,9 @@ namespace ContracterManager
             }
             return false;
         }
-        public void AddJob()
+        public void AddJob(string jobTitle, decimal cost)
         {
-
+            Jobs.Add(new Job(jobTitle, cost));
         }
         public void AssignJob()
         {
@@ -40,27 +54,29 @@ namespace ContracterManager
         }
         public void CompleteJob()
         {
-
+            
         }
-        public void GetContractors()
+        public List<Contractor> GetContractors()
         {
-
+            List<Contractor> contractorsList = Contractors;
+            return contractorsList;
         }
-        public void GetJobs()
+        public List<Job> GetJobs()
         {
-
+            List<Job> jobsList = Jobs;
+            return jobsList;
         }
-        public void GetAvailableContractors()
+        public List<Contractor> GetAvailableContractors()
         {
-
+            return Contractors;
         }
-        public void GetAvailableJobs()
+        public List<Job> GetAvailableJobs()
         {
-
+            return Jobs;
         }
-        public void GetJobsByCost()
+        public List<Job> GetJobsByCost()
         {
-
+            return GetJobs();
         }
     }
 }
