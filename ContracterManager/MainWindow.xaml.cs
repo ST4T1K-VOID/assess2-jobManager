@@ -25,7 +25,6 @@ namespace ContracterManager
             RefreshContractorsList();
             RefreshJobsList(filter);
         }
- 
         public enum JobFilter
         {
             None = 0,

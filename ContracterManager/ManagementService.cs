@@ -24,8 +24,6 @@ namespace ContracterManager
             AddJob("Lay bricks", Convert.ToDecimal(300.99));
             AddJob("lay roof tiles", Convert.ToDecimal(320.50));
             AddJob("install light fixtures", Convert.ToDecimal(199.99));
-
-
         }
         //TODO add date
         public void AddContractor(int contractorID, string firstName, string lastName, decimal rate)
@@ -34,11 +32,11 @@ namespace ContracterManager
         }
         public bool RemoveContractor(Contractor targetContractor, List<Contractor> contractors)
         {
-            foreach (Contractor item in contractors)
+            foreach (Contractor contractor in contractors)
             {
-                if (item.ContractorID == targetContractor.ContractorID)
+                if (contractor.ContractorID == targetContractor.ContractorID)
                 {
-                    contractors.Remove(item);
+                    contractors.Remove(contractor);
                 }
                 return true;
             }

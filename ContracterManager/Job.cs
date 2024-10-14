@@ -12,7 +12,7 @@ namespace ContracterManager
         public decimal Cost { get; set; }
         //public DateOnly DateCreated { get; set; }
         public bool Completed { get; set; } = false;
-        public Contractor AssignedContractor { get; set; } = null;
+        public Contractor? AssignedContractor { get; set; } = null;
 
         public Job(string title, decimal cost)
         {
