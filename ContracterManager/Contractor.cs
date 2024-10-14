@@ -12,15 +12,15 @@ namespace ContracterManager
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public decimal Rate { get; set; }
-        //public DateOnly StartDate { get; set; }
+        public DateOnly StartDate { get; set; }
 
-        public Contractor(int contractorID, string firstName, string lastName, decimal rate) //Add date back
+        public Contractor(int contractorID, string firstName, string lastName, decimal rate, DateOnly startDate)
         {
             ContractorID = contractorID;
             FirstName = firstName;
             LastName = lastName;
             Rate = rate;
-            //StartDate = startDate;
+            StartDate = startDate;
         }
 
         public override string ToString()

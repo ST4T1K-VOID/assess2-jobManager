@@ -33,7 +33,7 @@ namespace ContracterManager
         }
         JobFilter filter = 0;
 
-        public void RefreshContractorsList(bool filter = false)
+        void RefreshContractorsList(bool filter = false)
         {
             if (filter == false)
             {
@@ -46,7 +46,7 @@ namespace ContracterManager
                 list_contractors.ItemsSource = service.GetAvailableContractors();
             }
         }
-        public void RefreshJobsList(JobFilter filter)
+        void RefreshJobsList(JobFilter filter)
         {
             if ((int)filter == 0)
             {
@@ -65,9 +65,26 @@ namespace ContracterManager
             }
         }
 
-        private void button_GetContractors_Click(object sender, RoutedEventArgs e)
+        void button_GetContractors_Click(object sender, RoutedEventArgs e)
         {
             RefreshContractorsList();
+        }
+
+        private void list_contractors_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Contractor selectedContractor = list_contractors.SelectedItem as Contractor;
+            if (selectedContractor != null)
+            {
+                selectedContractor = service.GetContractors()[1];
+            }
+
+            textBox_FirstName.Text = selectedContractor.FirstName;
+            textBox_LastName.Text = selectedContractor.LastName;
+            textbox_ID.Text = selectedContractor.ContractorID.ToString();
+            textbox_Rate.Text = selectedContractor.Rate.ToString();
+            
+
+
         }
     }
 }

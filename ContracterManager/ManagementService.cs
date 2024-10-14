@@ -17,7 +17,7 @@ namespace ContracterManager
             AddContractor(101, "Bob", "Smith", Convert.ToDecimal(24.30));
             AddContractor(102, "Jane", "Smith", Convert.ToDecimal(24.00));
             AddContractor(103, "Smelly", "JR", Convert.ToDecimal(100.05));
-            AddContractor(104, "Peter", "Pater", Convert.ToDecimal(24.10));
+            AddContractor(104, "Peter", "Pator", Convert.ToDecimal(24.10));
             AddContractor(105, "Potatoe", "Joe", Convert.ToDecimal(0.20));
             AddContractor(106, "Billy", "Bob", Convert.ToDecimal(50.00));
 
@@ -26,9 +26,9 @@ namespace ContracterManager
             AddJob("install light fixtures", Convert.ToDecimal(199.99));
         }
         //TODO add date
-        public void AddContractor(int contractorID, string firstName, string lastName, decimal rate)
+        public void AddContractor(int contractorID, string firstName, string lastName, decimal rate, DateOnly startDate)
         {
-            Contractors.Add(new Contractor( contractorID, firstName, lastName, rate));
+            Contractors.Add(new Contractor( contractorID, firstName, lastName, rate, startDate));
         }
         public bool RemoveContractor(Contractor targetContractor, List<Contractor> contractors)
         {
