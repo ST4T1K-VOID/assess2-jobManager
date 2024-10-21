@@ -9,11 +9,11 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4"/>
-            <ColumnDefinition Width="267*"/>
-            <ColumnDefinition Width="14*"/>
-            <ColumnDefinition Width="212*"/>
-            <ColumnDefinition Width="11*"/>
-            <ColumnDefinition Width="212*"/>
+            <ColumnDefinition Width="519*"/>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="369*"/>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="461*"/>
             <ColumnDefinition Width="4"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -26,40 +26,62 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="4"/>
         </Grid.RowDefinitions>
-        <!-- TODO: Add min width?-->
-        <Label Grid.Column="3" Grid.Row="1" Content="CONTRACTORS" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0,0,0,0" FontWeight="Bold" FontFamily="Verdana" Margin="0,0,0,2" Grid.RowSpan="2"/>
-        <ListBox x:Name="list_contractors" Grid.Column="3" Grid.Row="3" Grid.RowSpan="3" Background="#FFE8E8E8" BorderBrush="#FF9FA1A7" FontSize="14" Margin="0,0,0,4" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="list_contractors_SelectionChanged"/>
-        <Label Grid.Column="5" Grid.Row="1" Content="JOBS" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0,0,0,0" FontWeight="Bold" FontFamily="Verdana" Margin="0,0,0,2" Grid.RowSpan="2"/>
-        <ListBox x:Name="list_jobs" Grid.Column="5" Grid.Row="3" Grid.RowSpan="3" Background="#FFE8E8E8" BorderBrush="#FF9FA1A7" FontSize="14" Margin="0,0,0,4"/>
 
-        
-        <Button x:Name="button_GetContractors" Grid.Column="3" Grid.Row="6" Content="Get Contractors" Margin="0,4,0,4" Click="button_GetContractors_Click" />
-        <Grid Grid.Column="5" Grid.Row="6">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="button_GetJobs" Grid.Column="0"  Content="Get Jobs" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,4,2,4"/>
-            <Button x:Name="button_AssignJob" Grid.Column="1" Content="Complete Job" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2,4,0,4"/>
-        </Grid>
-        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="9,2,0,0" Orientation="Vertical" Grid.Row="3">
+        <!--LISTS-->
+        <Label Grid.Column="3" Grid.Row="1" Content="CONTRACTORS" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0,0,0,0" FontWeight="Bold" FontFamily="Verdana" Margin="0,0,0,2" Grid.RowSpan="2"/>
+        <ListBox x:Name="list_contractors" Grid.Column="3" Grid.Row="3" Grid.RowSpan="3" Background="#FFE8E8E8" BorderBrush="#FF707070" FontSize="14" Margin="0,0,0,4" SelectionChanged="list_contractors_SelectionChanged"/>
+        <Label Grid.Column="5" Grid.Row="1" Content="JOBS" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0,0,0,0" FontWeight="Bold" FontFamily="Verdana" Margin="0,0,0,2" Grid.RowSpan="2"/>
+        <ListBox x:Name="list_jobs" Grid.Column="5" Grid.Row="3" Grid.RowSpan="3" Background="#FFE8E8E8" BorderBrush="#FF707070" FontSize="14" Margin="0,0,0,4" SelectionChanged="list_jobs_SelectionChanged"/>
+
+        <!--BUTTONS-->
+        <Button x:Name="button_assignJob" Grid.Column="1" Grid.Row="6" Content="ASSIGN JOB" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="80,30" Click="button_assignJob_Click"/>
+        <StackPanel Grid.Column="3" Orientation="Horizontal" Grid.Row="6" HorizontalAlignment="Center">
+            <CheckBox x:Name="checkbox_contractorFilter" Content="Filter by Available" FontWeight="Bold" FontFamily="Verdana" Checked="checkbox_contractorFilter_Checked" Unchecked="checkbox_contractorFilter_Unchecked" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <Button x:Name="button_GetContractors" Grid.Column="3" Grid.Row="6" Content="REFRESH" Click="button_GetContractors_Click" Height="80" Width="210" FontWeight="Bold"/>
+        </StackPanel>
+        <StackPanel Grid.Column="5" Grid.Row="6" Margin="0,4,0,4" Orientation="Horizontal" HorizontalAlignment="Center">
+            <ComboBox x:Name="combo_jobFilter" Text="Filter By" FontWeight="Bold" Height="30" Width="145" VerticalContentAlignment="Center" HorizontalAlignment="Center" Padding="10,0,0,0" BorderBrush="#FF707070" SelectionChanged="combo_jobFilter_SelectionChanged" />
+            <Button x:Name="button_GetJobs"  Content="REFRESH" FontWeight="Bold" Height="80" Margin="10,0,10,0" Width="145" Click="button_GetJobs_Click"/>
+            <Button x:Name="button_CompleteJob" Content="COMPLETE JOB" FontWeight="Bold" Height="80" Width="145" Click="button_CompleteJob_Click"/>
+        </StackPanel>
+
+        <!--CONTRACTOR-->
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="9,0,0,0" Orientation="Vertical" Grid.Row="3" Height="275" Width="340">
             <Label Padding="0" Content="Name:" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontSize="14" FontWeight="Bold" Height="28" Width="53"/>
             <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="textBox_FirstName" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="" Width="165" Height="27" FontSize="16" Margin="0,0,5,0"/>
-                <TextBox x:Name="textBox_LastName" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="" Width="165" Height="27" FontSize="16" Margin="5,0,0,0"/>
+                <TextBox IsReadOnly="True" Focusable="False" x:Name="textBox_FirstName" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="" Width="165" Height="27" FontSize="16" Margin="0,0,5,0"/>
+                <TextBox IsReadOnly="True" Focusable="False" x:Name="textBox_LastName" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="" Width="165" Height="27" FontSize="16" Margin="5,0,0,0"/>
             </StackPanel>
             <Label Padding="0" Content="ID:" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontSize="14" FontWeight="Bold" Height="28" Width="29"/>
-            <TextBox x:Name="textbox_ID" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="" Width="338" Height="27" FontSize="16"/>
+            <TextBox IsReadOnly="True" Focusable="False" x:Name="textbox_ID" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="" Width="338" Height="27" FontSize="16"/>
             <Label Padding="0" Content="Hourly Rate:" HorizontalAlignment="Left" FontSize="14" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontWeight="Bold" Height="28" Width="92"/>
-            <TextBox x:Name="textbox_Rate" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="" Width="338" Height="27" FontSize="16"/>
+            <TextBox IsReadOnly="True" Focusable="False" x:Name="textbox_Rate" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="" Width="338" Height="27" FontSize="16"/>
             <Label Padding="0" Content="Start Date:" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontSize="14" FontWeight="Bold" Height="28" Width="80"/>
-            <TextBox x:Name="textbox_StartDate" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="" Width="338" Height="27" FontSize="16"/>
+            <TextBox IsReadOnly="True" Focusable="False" x:Name="textbox_StartDate" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="" Width="338" Height="27" FontSize="16"/>
             <Label Padding="0" Content="Assigned Job:" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontSize="14" FontWeight="Bold" Height="28" Width="104"/>
-            <TextBox x:Name="textbox_AssignedJob" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="" Width="338" Height="27" FontSize="16"/>
+            <TextBox IsReadOnly="True" Focusable="False" x:Name="textbox_AssignedJob" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="" Width="338" Height="27" FontSize="16"/>
         </StackPanel>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" Orientation="Vertical" Grid.Row="3">
-            <Button Content="ADD" Width="130" Height="50" Margin="0,0,0,7" FontWeight="Bold" FontSize="18" FontFamily="Verdana"/>
-            <Button Content="REMOVE" Width="130" Height="50" Margin="0,7,0,0" FontSize="18" FontWeight="Bold" FontFamily="Verdana"/>
+        <!--CONTRACTOR BUTTONS-->
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="367,0,0,0" Orientation="Vertical" Grid.Row="3" Height="139" Width="142">
+            <Button x:Name="button_add" Content="ADD" Width="130" Height="50" Margin="0,0,0,7" FontWeight="Bold" FontSize="18" FontFamily="Verdana"/>
+            <Button x:Name="button_remove" Content="REMOVE" Width="130" Height="50" Margin="0,7,0,10" FontSize="18" FontWeight="Bold" FontFamily="Verdana" Click="button_remove_Click"/>
         </StackPanel>
+
+        <!--JOB-->
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="9,0,0,0" Orientation="Vertical" Grid.Row="4" Height="275" Width="340">
+            <Label Padding="0" Content="Name:" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontSize="14" FontWeight="Bold" Height="28" Width="53"/>
+            <TextBox IsReadOnly="True" Focusable="False" Padding="0" x:Name="textbox_Title" HorizontalAlignment="Left" Text="" Width="338" Height="27" FontSize="16"  />
+            <Label Padding="0" Content="Cost:" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontSize="14" FontWeight="Bold" Height="28" Width="37"/>
+            <TextBox IsReadOnly="True" Focusable="False" x:Name="textbox_cost" VerticalContentAlignment="Center"  Text="" Width="338" Height="27" FontSize="16"/>
+            <Label Padding="0" Content="Date Created:" HorizontalAlignment="Left" FontSize="14" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontWeight="Bold" Height="28" Width="92"/>
+            <TextBox IsReadOnly="True" Focusable="False" x:Name="textbox_dateMade" VerticalContentAlignment="Center" Text="" Width="338" Height="27" FontSize="16"/>
+            <Label Padding="0" Content="Assigned Contractor:" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontSize="14" FontWeight="Bold" Height="28" Width="146"/>
+            <TextBox IsReadOnly="True" Focusable="False" x:Name="textbox_AssignedContractor" VerticalContentAlignment="Center" Text="" Width="338" Height="27" FontSize="16"/>
+            <Label Padding="0" Content="Status:" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontSize="14" FontWeight="Bold" Height="28" Width="141"/>
+            <TextBox IsReadOnly="True" Focusable="False" x:Name="textbox_jobStatus" VerticalContentAlignment="Center" Text="" Width="338" Height="27" FontSize="16"/>
+        </StackPanel>
+        <!--JOB BUTTONS-->
+        <Button x:Name="button_addJob" Grid.Column="1" Grid.Row="4"  HorizontalAlignment="Right" Content="ADD" Width="130" Height="50" Margin="0,0,16,0" FontWeight="Bold" FontSize="18" FontFamily="Verdana" VerticalAlignment="Center"/>
+
     </Grid>
 </Window>

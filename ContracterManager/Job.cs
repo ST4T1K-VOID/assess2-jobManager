@@ -10,7 +10,7 @@ namespace ContracterManager
     {
         public string Title { get; set; }
         public decimal Cost { get; set; }
-        //public DateOnly DateCreated { get; set; }
+        public DateOnly DateCreated { get; set; } = DateOnly.FromDateTime(DateTime.Now);
         public bool Completed { get; set; } = false;
         public Contractor? AssignedContractor { get; set; } = null;
 
@@ -18,7 +18,6 @@ namespace ContracterManager
         {
             Title = title;
             Cost = cost;
-            //DateCreated = date;
         }
 
         public override string ToString()
@@ -27,20 +26,25 @@ namespace ContracterManager
             string completedString;
             if (Completed == false)
             {
-                completedString = "in progress";
+                completedString = "ongoing";
             }
             else
             {
                 completedString = "Completed";
             }
+            string dateString = DateCreated.ToString("dd-MM-yyyy");
             if (AssignedContractor != null)
             {
-                string contractorString = AssignedContractor.ToString();
-                return $"{Title} || {costString} || {completedString} || {AssignedContractor}";
+                string contractorString = string.Join(" ", [AssignedContractor.FirstName, AssignedContractor.LastName]);
+                return $"{Title} | ${costString} | {completedString} | {contractorString}";
+            }
+            else if (Completed == true)
+            {
+                return $"{Title} |  ${costString} | {completedString}";
             }
             else
             {
-                return $"{Title} || ${costString} || {completedString} || Job unassigned";
+                return $"{Title} | ${costString} | {completedString} | Job unassigned";
             }
         }
     }
