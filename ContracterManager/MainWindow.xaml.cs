@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using ContracterManager;
+using Microsoft.Windows.Themes;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -60,10 +62,10 @@ namespace ContracterManager
                 list_jobs.ItemsSource = null;
                 list_jobs.ItemsSource = service.GetAvailableJobs();
             }
-            else
+            else // bycost
             {
-                list_jobs.ItemsSource= null;
-                list_jobs.ItemsSource = service.GetJobsByCost();
+                ByCostWindow byCostWindow = new ByCostWindow();
+                byCostWindow.ShowDialog();
             }
         }
 
@@ -182,16 +184,9 @@ namespace ContracterManager
             }
             //TODO add warning popup
             service.RemoveContractor(list_contractors.SelectedItem as Contractor);
-        }
+            RefreshContractorsList(contractorFilter);
 
-        private void button_removeJob_Click(object sender, RoutedEventArgs e)
-        {
-            if (list_jobs.SelectedItem == null)
-            {
-                return;
-            }
-            service.removeJob
+            
         }
     }
 }
-

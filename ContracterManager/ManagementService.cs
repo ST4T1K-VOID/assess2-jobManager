@@ -39,8 +39,8 @@ namespace ContracterManager
                 if (contractor.ContractorID == targetContractor.ContractorID)
                 {
                     Contractors.Remove(contractor);
+                    return true;
                 }
-                return true;
             }
             return false;
         }
@@ -108,12 +108,21 @@ namespace ContracterManager
             }
             return availableJobs;
         }
-        public List<Job> GetJobsByCost()
+        public List<Job> GetJobsByCost(decimal high, decimal low)
         {
-            //THIS IS WRONG
-            // MUST BE GIVE JOBS WITHIN A GIVEN RANGE
-            List<Job> jobsSorted = Jobs.OrderBy(Job => Job.Cost).ToList();
-            return jobsSorted;
+            ////THIS IS WRONG
+            //// MUST BE GIVE JOBS WITHIN A GIVEN RANGE
+            //List<Job> jobsSorted = Jobs.OrderBy(Job => Job.Cost).ToList();
+            //return jobsSorted;
+            List<Job> jobsWithinRange = new List<Job>();
+            foreach (Job job in Jobs)
+            {
+                if (job.Cost > low && job.Cost < high)
+                {
+                    jobsWithinRange.Add(job);
+                }
+            }
+            return jobsWithinRange;
         }
     }
 }

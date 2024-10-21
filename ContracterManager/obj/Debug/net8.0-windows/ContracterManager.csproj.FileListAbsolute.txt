@@ -82,3 +82,5 @@ C:\Users\OBRIEM\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8
 C:\Users\OBRIEM\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8.0-windows\ContracterManager.pdb
 C:\Users\OBRIEM\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8.0-windows\ContracterManager.genruntimeconfig.cache
 C:\Users\OBRIEM\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8.0-windows\ref\ContracterManager.dll
+C:\Users\OBRIEM\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8.0-windows\ByCostWindow.g.cs
+C:\Users\OBRIEM\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8.0-windows\ByCostWindow.baml
