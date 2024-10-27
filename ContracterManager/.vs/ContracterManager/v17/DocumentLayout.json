@@ -1,25 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\20122886\\source\\repos\\assess2-jobManager\\ContracterManager\\",
+  "WorkspaceRootPath": "C:\\Users\\Maddie\\source\\repos\\assess2-job-manager\\ContracterManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|c:\\users\\20122886\\source\\repos\\assess2-jobmanager\\contractermanager\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|c:\\users\\20122886\\source\\repos\\assess2-jobmanager\\contractermanager\\managementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|solutionrelative:managementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|c:\\users\\20122886\\source\\repos\\assess2-jobmanager\\contractermanager\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|c:\\users\\maddie\\source\\repos\\assess2-job-manager\\contractermanager\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|c:\\users\\20122886\\source\\repos\\assess2-jobmanager\\contractermanager\\contractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|c:\\users\\maddie\\source\\repos\\assess2-job-manager\\contractermanager\\managementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|solutionrelative:managementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|c:\\users\\maddie\\source\\repos\\assess2-job-manager\\contractermanager\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|c:\\users\\maddie\\source\\repos\\assess2-job-manager\\contractermanager\\contractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|solutionrelative:contractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|c:\\users\\20122886\\source\\repos\\assess2-jobmanager\\contractermanager\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|c:\\users\\maddie\\source\\repos\\assess2-job-manager\\contractermanager\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7543B885-4145-48EE-8DAF-85FE2068313C}|ContracterManager.csproj|solutionrelative:job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -30,17 +30,17 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\20122886\\source\\repos\\assess2-jobManager\\ContracterManager\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Maddie\\source\\repos\\assess2-job-manager\\ContracterManager\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\20122886\\source\\repos\\assess2-jobManager\\ContracterManager\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Maddie\\source\\repos\\assess2-job-manager\\ContracterManager\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAAJAAAAAAAAAAAAAgwIMAAAA6AAAA",
+              "ViewState": "AQIAACsAAAAAAAAAAAAMwDsAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-30T04:13:01.429Z",
               "IsPinned": true,
@@ -52,11 +52,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\20122886\\source\\repos\\assess2-jobManager\\ContracterManager\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Maddie\\source\\repos\\assess2-job-manager\\ContracterManager\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\20122886\\source\\repos\\assess2-jobManager\\ContracterManager\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Maddie\\source\\repos\\assess2-job-manager\\ContracterManager\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-10-21T04:21:38.634Z",
@@ -66,11 +66,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "ManagementService.cs",
-              "DocumentMoniker": "C:\\Users\\20122886\\source\\repos\\assess2-jobManager\\ContracterManager\\ManagementService.cs",
+              "DocumentMoniker": "C:\\Users\\Maddie\\source\\repos\\assess2-job-manager\\ContracterManager\\ManagementService.cs",
               "RelativeDocumentMoniker": "ManagementService.cs",
-              "ToolTip": "C:\\Users\\20122886\\source\\repos\\assess2-jobManager\\ContracterManager\\ManagementService.cs",
+              "ToolTip": "C:\\Users\\Maddie\\source\\repos\\assess2-job-manager\\ContracterManager\\ManagementService.cs",
               "RelativeToolTip": "ManagementService.cs",
-              "ViewState": "AQIAAFMAAAAAAAAAAAAAwHEAAAA1AAAA",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAmwG8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-30T04:16:38.492Z",
               "EditorCaption": ""
@@ -79,11 +79,11 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Contractor.cs",
-              "DocumentMoniker": "C:\\Users\\20122886\\source\\repos\\assess2-jobManager\\ContracterManager\\Contractor.cs",
+              "DocumentMoniker": "C:\\Users\\Maddie\\source\\repos\\assess2-job-manager\\ContracterManager\\Contractor.cs",
               "RelativeDocumentMoniker": "Contractor.cs",
-              "ToolTip": "C:\\Users\\20122886\\source\\repos\\assess2-jobManager\\ContracterManager\\Contractor.cs",
+              "ToolTip": "C:\\Users\\Maddie\\source\\repos\\assess2-job-manager\\ContracterManager\\Contractor.cs",
               "RelativeToolTip": "Contractor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAfAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-30T04:16:07.201Z",
               "EditorCaption": ""
@@ -92,14 +92,13 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Job.cs",
-              "DocumentMoniker": "C:\\Users\\20122886\\source\\repos\\assess2-jobManager\\ContracterManager\\Job.cs",
+              "DocumentMoniker": "C:\\Users\\Maddie\\source\\repos\\assess2-job-manager\\ContracterManager\\Job.cs",
               "RelativeDocumentMoniker": "Job.cs",
-              "ToolTip": "C:\\Users\\20122886\\source\\repos\\assess2-jobManager\\ContracterManager\\Job.cs",
+              "ToolTip": "C:\\Users\\Maddie\\source\\repos\\assess2-job-manager\\ContracterManager\\Job.cs",
               "RelativeToolTip": "Job.cs",
               "ViewState": "AQIAABAAAAAAAAAAAAAcwBwAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T04:15:54.824Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-30T04:15:54.824Z"
             }
           ]
         }

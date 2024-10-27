@@ -110,10 +110,6 @@ namespace ContracterManager
         }
         public List<Job> GetJobsByCost(decimal high, decimal low)
         {
-            ////THIS IS WRONG
-            //// MUST BE GIVE JOBS WITHIN A GIVEN RANGE
-            //List<Job> jobsSorted = Jobs.OrderBy(Job => Job.Cost).ToList();
-            //return jobsSorted;
             List<Job> jobsWithinRange = new List<Job>();
             foreach (Job job in Jobs)
             {

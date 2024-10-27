@@ -52,12 +52,12 @@ namespace ContracterManager
         }
         void RefreshJobsList(JobFilter filter)
         {
-            if ((int)filter == 0)
+            if ((int)filter == 0) //none
             {
                 list_jobs.ItemsSource = null;
                 list_jobs.ItemsSource = service.GetJobs();
             }
-            else if ((int)filter == 1)
+            else if ((int)filter == 1) //byavailable
             {
                 list_jobs.ItemsSource = null;
                 list_jobs.ItemsSource = service.GetAvailableJobs();
