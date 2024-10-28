@@ -24,7 +24,7 @@ namespace ContracterManager
         public MainWindow()
         {
             InitializeComponent();
-            RefreshContractorsList();
+            RefreshContractorsList(contractorFilter);
             RefreshJobsList(jobFilter);
             combo_jobFilter.ItemsSource = Enum.GetValues(typeof(JobFilter));
         }
@@ -47,7 +47,7 @@ namespace ContracterManager
                 list_contractors.ItemsSource = null;
                 list_contractors.ItemsSource = service.GetContractors();
             }
-            else
+            else if (filter == true) 
             {
                 list_contractors.ItemsSource= null;
                 list_contractors.ItemsSource = service.GetAvailableContractors();
@@ -76,6 +76,11 @@ namespace ContracterManager
 
                     list_jobs.ItemsSource = null;
                     list_jobs.ItemsSource = service.GetJobsByCost(max, min);
+                    jobFilter = previousFilter;
+                    combo_jobFilter.SelectedItem = previousFilter;
+                }
+                else
+                {
                     jobFilter = previousFilter;
                     combo_jobFilter.SelectedItem = previousFilter;
                 }
@@ -171,6 +176,7 @@ namespace ContracterManager
             string message = service.AssignJob( list_jobs.SelectedItem as Job, list_contractors.SelectedItem as Contractor);
             MessageBox.Show(message, "Operation result", MessageBoxButton.OK);
             RefreshJobsList(jobFilter);
+            RefreshContractorsList(contractorFilter);
         }
 
         private void combo_jobFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -237,7 +243,7 @@ namespace ContracterManager
                 DateOnly date = DateOnly.Parse(addContractorWindow.datepicker_date.Text);
 
                 service.AddContractor(contractorID, firstName, lastName, rate, date);
-                RefreshContractorsList();
+                RefreshContractorsList(contractorFilter);
             }
         }
     }
