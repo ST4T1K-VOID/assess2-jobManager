@@ -1,0 +1,30 @@
+﻿<Window x:Class="ContracterManager.AddContractorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ContracterManager"
+        mc:Ignorable="d"
+        Title="AddContractorWindow" Height="250" Width="450" MaxHeight="250" MaxWidth="450">
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Name:"/>
+                <TextBox x:Name="textbox_firstName" Width="150" Margin="0,0,5,0" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="textbox_lastName" Width="150" VerticalContentAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Label Content="Rate:"/>
+                <TextBox x:Name="textbox_rate" Width="150" Margin="0,0,5,0" VerticalContentAlignment="Center"/>
+                <Label Content="Start Date:"/>
+                <DatePicker x:Name="datepicker_date" Width="150" VerticalContentAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Confirm" Width="100" Height="30" Margin="0,10,10,0" Click="Button_Click"/>
+                <Button x:Name="button_Cancel" Content="Cancel" Width="100" Height="30" Margin="0,10,0,0" Click="button_Cancel_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

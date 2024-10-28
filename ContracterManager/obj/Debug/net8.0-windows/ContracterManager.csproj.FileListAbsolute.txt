@@ -86,3 +86,9 @@ C:\Users\OBRIEM\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8
 C:\Users\OBRIEM\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8.0-windows\ByCostWindow.baml
 C:\Users\Maddie\source\repos\assess2-job-manager\ContracterManager\obj\Debug\net8.0-windows\ByCostWindow.g.cs
 C:\Users\Maddie\source\repos\assess2-job-manager\ContracterManager\obj\Debug\net8.0-windows\ByCostWindow.baml
+C:\Users\20122886\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8.0-windows\ByCostWindow.g.cs
+C:\Users\20122886\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8.0-windows\ByCostWindow.baml
+C:\Users\20122886\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8.0-windows\AddContractorWindow.g.cs
+C:\Users\20122886\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8.0-windows\AddJobWindow.g.cs
+C:\Users\20122886\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8.0-windows\AddContractorWindow.baml
+C:\Users\20122886\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8.0-windows\AddJobWindow.baml

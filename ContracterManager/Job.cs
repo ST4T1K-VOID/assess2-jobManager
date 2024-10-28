@@ -9,12 +9,12 @@ namespace ContracterManager
     class Job
     {
         public string Title { get; set; }
-        public decimal Cost { get; set; }
+        public int Cost { get; set; }
         public DateOnly DateCreated { get; set; } = DateOnly.FromDateTime(DateTime.Now);
         public bool Completed { get; set; } = false;
         public Contractor? AssignedContractor { get; set; } = null;
 
-        public Job(string title, decimal cost)
+        public Job(string title, int cost)
         {
             Title = title;
             Cost = cost;

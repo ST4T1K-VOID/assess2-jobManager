@@ -30,7 +30,7 @@ namespace ContracterManager
             string lNameString = LastName;
             string rateString = Rate.ToString();
 
-            return $"{iDString} | {fNameString} {lNameString}";
+            return $"{iDString} | {fNameString} {lNameString} | {rateString}";
         }
     }
 }

@@ -63,7 +63,7 @@
         </StackPanel>
         <!--CONTRACTOR BUTTONS-->
         <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="367,0,0,0" Orientation="Vertical" Grid.Row="3" Height="139" Width="142">
-            <Button x:Name="button_add" Content="ADD" Width="130" Height="50" Margin="0,0,0,7" FontWeight="Bold" FontSize="18" FontFamily="Verdana"/>
+            <Button x:Name="button_add" Content="ADD" Width="130" Height="50" Margin="0,0,0,7" FontWeight="Bold" FontSize="18" FontFamily="Verdana" Click="button_add_Click"/>
             <Button x:Name="button_remove" Content="REMOVE" Width="130" Height="50" Margin="0,7,0,10" FontSize="18" FontWeight="Bold" FontFamily="Verdana" Click="button_remove_Click"/>
         </StackPanel>
 
@@ -81,7 +81,7 @@
             <TextBox IsReadOnly="True" Focusable="False" x:Name="textbox_jobStatus" VerticalContentAlignment="Center" Text="" Width="338" Height="27" FontSize="16"/>
         </StackPanel>
         <!--JOB BUTTONS-->
-        <Button x:Name="button_addJob" Grid.Column="1" Grid.Row="4"  HorizontalAlignment="Right" Content="ADD" Width="130" Height="50" Margin="0,0,16,0" FontWeight="Bold" FontSize="18" FontFamily="Verdana" VerticalAlignment="Center"/>
+        <Button x:Name="button_addJob" Grid.Column="1" Grid.Row="4"  HorizontalAlignment="Right" Content="ADD" Width="130" Height="50" Margin="0,0,16,0" FontWeight="Bold" FontSize="18" FontFamily="Verdana" VerticalAlignment="Center" Click="button_addJob_Click"/>
 
     </Grid>
 </Window>

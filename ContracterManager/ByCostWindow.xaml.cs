@@ -23,12 +23,27 @@ namespace ContracterManager
         {
             InitializeComponent();
         }
-
-        public Tuple<decimal,decimal> SearchRange { get; private set; }
-
         private void button_confirm_Click(object sender, RoutedEventArgs e)
         {
+            if (textbox_max.Text == string.Empty || textbox_min.Text == string.Empty)
+            {
+                MessageBox.Show("All fields must be filled", "Invalid input", MessageBoxButton.OK);
+                return;
+            }
 
+            if (!textbox_max.Text.All(char.IsDigit) || !textbox_min.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Only enter numbers", "Invalid input", MessageBoxButton.OK);
+                return;
+            }
+
+            this.DialogResult = true;
+            this.Close();
+        }
+
+        private void button_cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
             this.Close();
         }
     }

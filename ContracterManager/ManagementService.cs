@@ -8,9 +8,9 @@ namespace ContracterManager
 {
     class ManagementService
     {
-        private List<Contractor> Contractors = new List<Contractor>();
+        private List<Contractor> contractors = new List<Contractor>();
 
-        private List<Job> Jobs = new List<Job>();
+        private List<Job> jobs = new List<Job>();
  
         public ManagementService()
         {
@@ -21,33 +21,54 @@ namespace ContracterManager
             AddContractor(105, "Potatoe", "Joe", Convert.ToDecimal(0.20), DateOnly.Parse("01-01-0001"));
             AddContractor(106, "Billy", "Bob", Convert.ToDecimal(50.00), DateOnly.Parse("12-12-1999"));
 
-            AddJob("Lay bricks", Convert.ToDecimal(300.99));
-            AddJob("forge sacred blade", Convert.ToDecimal(2500.70));
-            AddJob("lay roof tiles", Convert.ToDecimal(320.50));
-            AddJob("install light fixtures", Convert.ToDecimal(199.99));
-            AddJob("banish evil", Convert.ToDecimal(0.01));
-            AssignJob(Jobs[0], Contractors[0]);
+            AddJob("Lay bricks", 300);
+            AddJob("forge sacred blade", 2500);
+            AddJob("lay roof tiles", 320);
+            AddJob("install light fixtures", 199);
+            AddJob("banish evil", 1);
+            AssignJob(jobs[0], contractors[0]);
         }
+        /// <summary>
+        /// Adds a Contractor.
+        /// </summary>
+        /// <param name="contractorID"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="rate"></param>
+        /// <param name="startDate"></param>
         public void AddContractor(int contractorID, string firstName, string lastName, decimal rate, DateOnly startDate)
         {
-            Contractors.Add(new Contractor( contractorID, firstName, lastName, rate, startDate));
+            contractors.Add(new Contractor( contractorID, firstName, lastName, rate, startDate));
         }
-        public bool RemoveContractor(Contractor targetContractor)
+        /// <summary>
+        /// Removes a contractor
+        /// </summary>
+        /// <param name="targetContractor"></param>
+        public void RemoveContractor(Contractor targetContractor)
         {
-            foreach (Contractor contractor in Contractors)
+            foreach (Contractor contractor in contractors)
             {
                 if (contractor.ContractorID == targetContractor.ContractorID)
                 {
-                    Contractors.Remove(contractor);
-                    return true;
+                    contractors.Remove(contractor);
                 }
             }
-            return false;
         }
-        public void AddJob(string jobTitle, decimal cost)
+        /// <summary>
+        /// Adds a Job
+        /// </summary>
+        /// <param name="jobTitle"></param>
+        /// <param name="cost"></param>
+        public void AddJob(string jobTitle, int cost)
         {
-            Jobs.Add(new Job(jobTitle, cost));
+            jobs.Add(new Job(jobTitle, cost));
         }
+        /// <summary>
+        /// Assigns a Contractor to a Job
+        /// </summary>
+        /// <param name="selectedJob"></param>
+        /// <param name="selectedContractor"></param>
+        /// <returns></returns>
         public string AssignJob(Job selectedJob, Contractor selectedContractor)
         {
             if (selectedJob.AssignedContractor != null)
@@ -59,7 +80,7 @@ namespace ContracterManager
                 return "Job has already been completed";
             }
 
-            foreach (Job job in Jobs)
+            foreach (Job job in jobs)
             {
                 if (selectedContractor == job.AssignedContractor)
                 {
@@ -69,25 +90,41 @@ namespace ContracterManager
             selectedJob.AssignedContractor = selectedContractor;
             return "Job successfully assigned";
         }
+        /// <summary>
+        /// Completes a job
+        /// </summary>
+        /// <param name="selectedJob"></param>
         public void CompleteJob(Job selectedJob)
         {
             selectedJob.Completed = true;
             selectedJob.AssignedContractor = null;
         }
+        /// <summary>
+        /// returns a list of all contractors
+        /// </summary>
+        /// <returns></returns>
         public List<Contractor> GetContractors()
         {
-            List<Contractor> contractorsList = Contractors;
+            List<Contractor> contractorsList = contractors.ToList();
             return contractorsList;
         }
+        /// <summary>
+        /// returns a list of all Jobs
+        /// </summary>
+        /// <returns></returns>
         public List<Job> GetJobs()
         {
-            List<Job> jobsList = Jobs;
+            List<Job> jobsList = jobs;
             return jobsList;
         }
+        /// <summary>
+        /// Returns a list of all contractors not assigned to a job
+        /// </summary>
+        /// <returns></returns>
         public List<Contractor> GetAvailableContractors()
         {
-            List<Contractor> availableContractors = Contractors;
-            foreach (Job job in Jobs)
+            List<Contractor> availableContractors = contractors.ToList();
+            foreach (Job job in jobs)
             {
                 if (job.AssignedContractor != null)
                 {
@@ -96,10 +133,14 @@ namespace ContracterManager
             }
             return availableContractors;
         }
+        /// <summary>
+        /// returns a list of all jobs without an assigned contractor
+        /// </summary>
+        /// <returns></returns>
         public List<Job> GetAvailableJobs()
         {
             List<Job> availableJobs = new List<Job>();
-            foreach (Job job in Jobs)
+            foreach (Job job in jobs)
             {
                 if (job.AssignedContractor == null && job.Completed == false)
                 {
@@ -108,12 +149,19 @@ namespace ContracterManager
             }
             return availableJobs;
         }
+
+        /// <summary>
+        /// returns a list of jobs within the specified range of cost
+        /// </summary>
+        /// <param name="high"></param>
+        /// <param name="low"></param>
+        /// <returns></returns>
         public List<Job> GetJobsByCost(decimal high, decimal low)
         {
             List<Job> jobsWithinRange = new List<Job>();
-            foreach (Job job in Jobs)
+            foreach (Job job in jobs)
             {
-                if (job.Cost > low && job.Cost < high)
+                if (job.Cost >= low && job.Cost <= high)
                 {
                     jobsWithinRange.Add(job);
                 }

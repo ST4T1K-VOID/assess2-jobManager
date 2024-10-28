@@ -28,6 +28,7 @@ namespace ContracterManager
             RefreshJobsList(jobFilter);
             combo_jobFilter.ItemsSource = Enum.GetValues(typeof(JobFilter));
         }
+
         public enum JobFilter
         {
             None = 0,
@@ -35,7 +36,9 @@ namespace ContracterManager
             ByCost = 2,
         }
         JobFilter jobFilter = 0;
+        JobFilter previousFilter = 0;
         bool contractorFilter = false;
+
         // Refresh methods
         void RefreshContractorsList(bool filter = false)
         {
@@ -66,6 +69,16 @@ namespace ContracterManager
             {
                 ByCostWindow byCostWindow = new ByCostWindow();
                 byCostWindow.ShowDialog();
+                if (byCostWindow.DialogResult == true)
+                {
+                    int max = int.Parse(byCostWindow.textbox_max.Text);
+                    int min = int.Parse(byCostWindow.textbox_min.Text);
+
+                    list_jobs.ItemsSource = null;
+                    list_jobs.ItemsSource = service.GetJobsByCost(max, min);
+                    jobFilter = previousFilter;
+                    combo_jobFilter.SelectedItem = previousFilter;
+                }
             }
         }
 
@@ -137,11 +150,13 @@ namespace ContracterManager
         private void checkbox_contractorFilter_Checked(object sender, RoutedEventArgs e)
         {
             contractorFilter = true;
+            RefreshContractorsList(contractorFilter);
         }
 
         private void checkbox_contractorFilter_Unchecked(object sender, RoutedEventArgs e)
         {
             contractorFilter = false;
+            RefreshContractorsList(contractorFilter);
         }
 
         private void button_assignJob_Click(object sender, RoutedEventArgs e)
@@ -153,7 +168,8 @@ namespace ContracterManager
             Contractor selectedContractor = list_contractors.SelectedItem as Contractor;
             Job selectedJob = list_jobs.SelectedItem as Job;
 
-            service.AssignJob( list_jobs.SelectedItem as Job, list_contractors.SelectedItem as Contractor);
+            string message = service.AssignJob( list_jobs.SelectedItem as Job, list_contractors.SelectedItem as Contractor);
+            MessageBox.Show(message, "Operation result", MessageBoxButton.OK);
             RefreshJobsList(jobFilter);
         }
 
@@ -161,6 +177,7 @@ namespace ContracterManager
         {
             if (combo_jobFilter.SelectedItem is JobFilter filter)
             {
+                previousFilter = jobFilter;
                 jobFilter = filter;
             }
         }
@@ -182,11 +199,46 @@ namespace ContracterManager
             {
                 return;
             }
-            //TODO add warning popup
-            service.RemoveContractor(list_contractors.SelectedItem as Contractor);
-            RefreshContractorsList(contractorFilter);
-
+            var result = MessageBox.Show("Are you sure you want to remove a contractor?", "Warning", MessageBoxButton.OKCancel);
             
+            if (result == MessageBoxResult.OK)
+            {
+                service.RemoveContractor(list_contractors.SelectedItem as Contractor);
+                RefreshContractorsList(contractorFilter);
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void button_addJob_Click(object sender, RoutedEventArgs e)
+        {
+            AddJobWindow addJobWindow = new AddJobWindow();
+            addJobWindow.ShowDialog();
+            if (addJobWindow.DialogResult == true)
+            {
+                service.AddJob(addJobWindow.textbox_title.Text, int.Parse(addJobWindow.textbox_cost.Text));
+            }
+        }
+
+        private void button_add_Click(object sender, RoutedEventArgs e)
+        {
+            AddContractorWindow addContractorWindow = new AddContractorWindow();
+            addContractorWindow.ShowDialog();
+            if (addContractorWindow.DialogResult == true)
+            {
+                List<Contractor> tempContractors = service.GetContractors();
+                Contractor tempContractor = tempContractors.Last();
+                int contractorID = (tempContractor.ContractorID + 1);
+                string firstName = addContractorWindow.textbox_firstName.Text;
+                string lastName = addContractorWindow.textbox_lastName.Text;
+                int rate = int.Parse(addContractorWindow.textbox_rate.Text);
+                DateOnly date = DateOnly.Parse(addContractorWindow.datepicker_date.Text);
+
+                service.AddContractor(contractorID, firstName, lastName, rate, date);
+                RefreshContractorsList();
+            }
         }
     }
 }
