@@ -49,7 +49,7 @@ namespace ContracterManager
             }
             else
             {
-                list_contractors.ItemsSource= null;
+                list_contractors.ItemsSource = null;
                 list_contractors.ItemsSource = service.GetAvailableContractors();
             }
         }
@@ -168,7 +168,7 @@ namespace ContracterManager
             Contractor selectedContractor = list_contractors.SelectedItem as Contractor;
             Job selectedJob = list_jobs.SelectedItem as Job;
 
-            string message = service.AssignJob( list_jobs.SelectedItem as Job, list_contractors.SelectedItem as Contractor);
+            string message = service.AssignJob(list_jobs.SelectedItem as Job, list_contractors.SelectedItem as Contractor);
             MessageBox.Show(message, "Operation result", MessageBoxButton.OK);
             RefreshJobsList(jobFilter);
         }
@@ -200,7 +200,7 @@ namespace ContracterManager
                 return;
             }
             var result = MessageBox.Show("Are you sure you want to remove a contractor?", "Warning", MessageBoxButton.OKCancel);
-            
+
             if (result == MessageBoxResult.OK)
             {
                 service.RemoveContractor(list_contractors.SelectedItem as Contractor);

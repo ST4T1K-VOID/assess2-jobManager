@@ -46,7 +46,9 @@
         </StackPanel>
 
         <!--CONTRACTOR-->
+        <Label Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Content="CONTRACTOR" />
         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="9,0,0,0" Orientation="Vertical" Grid.Row="3" Height="275" Width="340">
+            
             <Label Padding="0" Content="Name:" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontSize="14" FontWeight="Bold" Height="28" Width="53"/>
             <StackPanel Orientation="Horizontal">
                 <TextBox IsReadOnly="True" Focusable="False" x:Name="textBox_FirstName" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="" Width="165" Height="27" FontSize="16" Margin="0,0,5,0"/>
@@ -68,7 +70,8 @@
         </StackPanel>
 
         <!--JOB-->
-        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="9,0,0,0" Orientation="Vertical" Grid.Row="4" Height="275" Width="340">
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="9,0,0,0" Orientation="Vertical" Grid.Row="4" Height="315" Width="340">
+            <Label FontWeight="Bold" FontSize="14" Content="JOB"/>
             <Label Padding="0" Content="Name:" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontSize="14" FontWeight="Bold" Height="28" Width="53"/>
             <TextBox IsReadOnly="True" Focusable="False" Padding="0" x:Name="textbox_Title" HorizontalAlignment="Left" Text="" Width="338" Height="27" FontSize="16"  />
             <Label Padding="0" Content="Cost:" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontSize="14" FontWeight="Bold" Height="28" Width="37"/>
