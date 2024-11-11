@@ -46,6 +46,7 @@ namespace ContracterManager
         /// <param name="targetContractor"></param>
         public void RemoveContractor(Contractor targetContractor)
         {
+            GetContractors();
             foreach (Contractor contractor in contractors)
             {
                 if (contractor.ContractorID == targetContractor.ContractorID)
@@ -105,7 +106,7 @@ namespace ContracterManager
         /// <returns></returns>
         public List<Contractor> GetContractors()
         {
-            List<Contractor> contractorsList = contractors.ToList();
+            List<Contractor> contractorsList = contractors;
             return contractorsList;
         }
         /// <summary>
@@ -123,7 +124,7 @@ namespace ContracterManager
         /// <returns></returns>
         public List<Contractor> GetAvailableContractors()
         {
-            List<Contractor> availableContractors = contractors.ToList();
+            List<Contractor> availableContractors = contractors;
             foreach (Job job in jobs)
             {
                 if (job.AssignedContractor != null)

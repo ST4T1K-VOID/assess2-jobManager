@@ -92,3 +92,7 @@ C:\Users\20122886\source\repos\assess2-jobManager\ContracterManager\obj\Debug\ne
 C:\Users\20122886\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8.0-windows\ContracterManager.pdb
 C:\Users\20122886\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8.0-windows\ContracterManager.genruntimeconfig.cache
 C:\Users\20122886\source\repos\assess2-jobManager\ContracterManager\obj\Debug\net8.0-windows\ref\ContracterManager.dll
+C:\Users\Maddie\source\repos\assess2-job-manager\ContracterManager\obj\Debug\net8.0-windows\AddContractorWindow.g.cs
+C:\Users\Maddie\source\repos\assess2-job-manager\ContracterManager\obj\Debug\net8.0-windows\AddJobWindow.g.cs
+C:\Users\Maddie\source\repos\assess2-job-manager\ContracterManager\obj\Debug\net8.0-windows\AddContractorWindow.baml
+C:\Users\Maddie\source\repos\assess2-job-manager\ContracterManager\obj\Debug\net8.0-windows\AddJobWindow.baml
