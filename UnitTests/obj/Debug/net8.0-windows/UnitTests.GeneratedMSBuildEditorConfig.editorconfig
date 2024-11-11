@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = UnitTests
-build_property.ProjectDir = C:\Users\Maddie\source\repos\assess2-job-manager\UnitTests\
+build_property.ProjectDir = C:\Users\20122886\source\repos\assess2-jobManager\UnitTests\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

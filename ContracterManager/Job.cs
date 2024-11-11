@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContracterManager
 {
-    class Job
+    public class Job
     {
         public string Title { get; set; }
         public int Cost { get; set; }
@@ -32,7 +32,6 @@ namespace ContracterManager
             {
                 completedString = "Completed";
             }
-            string dateString = DateCreated.ToString("dd-MM-yyyy");
             if (AssignedContractor != null)
             {
                 string contractorString = string.Join(" ", [AssignedContractor.FirstName,"", AssignedContractor.LastName]);

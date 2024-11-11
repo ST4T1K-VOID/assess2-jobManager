@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContracterManager
 {
-    class ManagementService
+    public class ManagementService
     {
         private List<Contractor> contractors = new List<Contractor>();
 
@@ -38,7 +38,7 @@ namespace ContracterManager
         /// <param name="startDate"></param>
         public void AddContractor(int contractorID, string firstName, string lastName, decimal rate, DateOnly startDate)
         {
-            contractors.Add(new Contractor( contractorID, firstName, lastName, rate, startDate));
+            contractors.Add(new Contractor(contractorID, firstName, lastName, rate, startDate));
         }
         /// <summary>
         /// Removes a contractor
@@ -46,8 +46,7 @@ namespace ContracterManager
         /// <param name="targetContractor"></param>
         public void RemoveContractor(Contractor targetContractor)
         {
-            GetContractors();
-            foreach (Contractor contractor in contractors)
+            foreach (Contractor contractor in contractors.ToList())
             {
                 if (contractor.ContractorID == targetContractor.ContractorID)
                 {
@@ -106,7 +105,7 @@ namespace ContracterManager
         /// <returns></returns>
         public List<Contractor> GetContractors()
         {
-            List<Contractor> contractorsList = contractors;
+            List<Contractor> contractorsList = contractors.ToList();
             return contractorsList;
         }
         /// <summary>
