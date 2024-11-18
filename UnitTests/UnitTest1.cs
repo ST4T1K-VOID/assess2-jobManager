@@ -14,7 +14,7 @@ public class UnitTest1
         service.AddContractor(-1, "FName", "LName", new decimal(1.1), new DateOnly(2024, 11, 11));
         int actualLength = service.GetContractors().Count;
 
-        Assert.AreEqual(expectedLength, actualLength);
+        Assert.AreEqual(expectedLength, actualLength); //Intended result is for the list to remain the same size 
     }
     [TestMethod]
     public void AddContractorNegativeRate()
@@ -81,9 +81,9 @@ public class UnitTest1
     public void RemoveContractorCorrectlyRemoves()
     {
         ManagementService service = new ManagementService();
-        int expectedLength = service.GetContractors().Count();
+        int expectedLength = service.GetContractors().Count() -1;
 
-        service.AddContractor(1, "FName","LName", new decimal(1.1), new DateOnly(2024, 11, 11));
+        service.RemoveContractor(service.GetContractors()[1]);
         int actualLength = service.GetContractors().Count();
 
         Assert.AreEqual(expectedLength, actualLength);
@@ -281,21 +281,63 @@ public class UnitTest1
     [TestMethod]
     public void GetByCostNegativeMin()
     {
-        ManagementService service = new ManagementService(); //1,2,3 all return null
+        ManagementService service = new ManagementService();
+
+        int min = -1;
+        int max = 10;
+
+        List<Job>? result = service.GetJobsByCost(max, min);
+
+        Assert.IsNull(result);
     }
     [TestMethod]
     public void GetByCostNegativeMax()
     {
         ManagementService service = new ManagementService();
+
+        int min = 1;
+        int max = -10;
+
+        List<Job>? result = service.GetJobsByCost(max, min);
+
+        Assert.IsNull(result);
     }
     [TestMethod]
     public void GetByCostReversedMinMaxValues()
     {
         ManagementService service = new ManagementService();
+
+        int min = 10;
+        int max = 1;
+
+        List<Job>? result = service.GetJobsByCost(max, min);
+
+        Assert.IsNull(result);
     }
     [TestMethod]
-    public void GetByCostCorrectInputs() // compare length
+    public void GetByCostMaxIsZero()
     {
         ManagementService service = new ManagementService();
+
+        int min = 1;
+        int max = 0;
+
+        List<Job>? result = service.GetJobsByCost(max, min);
+
+        Assert.IsNull(result);
+    }
+
+    [TestMethod]
+    public void GetByCostCorrectInputs()
+    {
+        ManagementService service = new ManagementService();
+
+        int min = 0;
+        int max = 200;
+
+        int expectedLength = 2;
+        int actualLength = service.GetJobsByCost(max, min).Count();
+
+        Assert.AreEqual(expectedLength, actualLength);
     }
 }

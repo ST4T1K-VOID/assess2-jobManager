@@ -48,6 +48,11 @@ namespace ContracterManager
                 MessageBox.Show("Rate may only contain numbers or decimals", "Invalid input", MessageBoxButton.OK);
                 return;
             }
+            else if (decimal.Parse(textbox_rate.Text) < 0)
+            {
+                MessageBox.Show("Rate may only contain positive numbers", "", MessageBoxButton.OK);
+                return;
+            }
             else
             {
                 this.DialogResult = true;

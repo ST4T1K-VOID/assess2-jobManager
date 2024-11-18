@@ -3,6 +3,7 @@ using Microsoft.Windows.Themes;
 using System.ComponentModel;
 using System.Text;
 using System.Windows;
+using System.Windows.Automation.Provider;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -74,6 +75,11 @@ namespace ContracterManager
                     int max = int.Parse(byCostWindow.textbox_max.Text);
                     int min = int.Parse(byCostWindow.textbox_min.Text);
 
+                    if (service.GetJobsByCost(max, min) == null)
+                    {
+                        MessageBox.Show("ERROR: invalid input \n Did you enter your values correctly? ","ERROR",MessageBoxButton.OK);
+                    }
+
                     list_jobs.ItemsSource = null;
                     list_jobs.ItemsSource = service.GetJobsByCost(max, min);
                     jobFilter = previousFilter;
@@ -111,6 +117,7 @@ namespace ContracterManager
                 if (job.AssignedContractor == selectedContractor)
                 {
                     textbox_AssignedJob.Text = job.Title;
+                    return;
                 }
                 else
                 {
@@ -134,7 +141,7 @@ namespace ContracterManager
             }
             else
             {
-                textbox_AssignedContractor.Text = string.Join("", [selectedJob.AssignedContractor.FirstName, selectedJob.AssignedContractor.LastName]);
+                textbox_AssignedContractor.Text = $"{selectedJob.AssignedContractor.FirstName} {selectedJob.AssignedContractor.LastName}";
             }
             if (selectedJob.Completed == true)
             {
@@ -144,7 +151,6 @@ namespace ContracterManager
             {
                 textbox_jobStatus.Text = "Ongoing";
             }
-            //TODO Show assigned job if contractor has one
         }
         //Filter methods
         private void checkbox_contractorFilter_Checked(object sender, RoutedEventArgs e)
@@ -189,7 +195,13 @@ namespace ContracterManager
             {
                 return;
             }
-            service.CompleteJob(list_jobs.SelectedItem as Job);
+            Job job = list_jobs.SelectedItem as Job;
+            if (job.Completed == true)
+            {
+                MessageBox.Show("Job has already been completed","Job completion failed", MessageBoxButton.OK);
+                return;
+            }
+            service.CompleteJob(job);
             RefreshJobsList(jobFilter);
             RefreshContractorsList(contractorFilter);
         }
@@ -233,7 +245,7 @@ namespace ContracterManager
                 int contractorID = (tempContractor.ContractorID + 1);
                 string firstName = addContractorWindow.textbox_firstName.Text;
                 string lastName = addContractorWindow.textbox_lastName.Text;
-                int rate = int.Parse(addContractorWindow.textbox_rate.Text);
+                decimal rate = decimal.Parse(addContractorWindow.textbox_rate.Text);
                 DateOnly date = DateOnly.Parse(addContractorWindow.datepicker_date.Text);
 
                 service.AddContractor(contractorID, firstName, lastName, rate, date);

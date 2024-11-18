@@ -34,7 +34,7 @@ namespace ContracterManager
             }
             if (AssignedContractor != null)
             {
-                string contractorString = string.Join(" ", [AssignedContractor.FirstName,"", AssignedContractor.LastName]);
+                string contractorString = $"{AssignedContractor.FirstName} {AssignedContractor.LastName}";
                 return $"{Title} | ${costString} | {completedString} | {contractorString}";
             }
             else if (Completed == true)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,6 +39,14 @@ namespace ContracterManager
         /// <param name="startDate"></param>
         public void AddContractor(int contractorID, string firstName, string lastName, decimal rate, DateOnly startDate)
         {
+            if (contractorID < 0)
+            {
+                return;
+            }
+            else if (rate < 0)
+            {
+                return;
+            }
             contractors.Add(new Contractor(contractorID, firstName, lastName, rate, startDate));
         }
         /// <summary>
@@ -46,6 +55,11 @@ namespace ContracterManager
         /// <param name="targetContractor"></param>
         public void RemoveContractor(Contractor targetContractor)
         {
+            if (targetContractor == null)
+            {
+                return;
+            }
+
             foreach (Contractor contractor in contractors.ToList())
             {
                 if (contractor.ContractorID == targetContractor.ContractorID)
@@ -61,6 +75,11 @@ namespace ContracterManager
         /// <param name="cost"></param>
         public void AddJob(string jobTitle, int cost)
         {
+            if (cost < 0)
+            {
+                return;
+            }
+
             jobs.Add(new Job(jobTitle, cost));
         }
         /// <summary>
@@ -114,7 +133,7 @@ namespace ContracterManager
         /// <returns></returns>
         public List<Job> GetJobs()
         {
-            List<Job> jobsList = jobs;
+            List<Job> jobsList = jobs.ToList();
             return jobsList;
         }
         /// <summary>
@@ -123,7 +142,7 @@ namespace ContracterManager
         /// <returns></returns>
         public List<Contractor> GetAvailableContractors()
         {
-            List<Contractor> availableContractors = contractors;
+            List<Contractor> availableContractors = contractors.ToList();
             foreach (Job job in jobs)
             {
                 if (job.AssignedContractor != null)
@@ -156,8 +175,21 @@ namespace ContracterManager
         /// <param name="high"></param>
         /// <param name="low"></param>
         /// <returns></returns>
-        public List<Job> GetJobsByCost(decimal high, decimal low)
+        public List<Job>? GetJobsByCost(decimal high, decimal low)
         {
+            if (high == 0)
+            {
+                return null;
+            }
+            else if (high < 0 || low < 0)
+            {
+                return null;
+            }
+            else if (high < low)
+            {
+                return null;
+            }
+
             List<Job> jobsWithinRange = new List<Job>();
             foreach (Job job in jobs)
             {
